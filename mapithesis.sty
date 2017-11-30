@@ -1,0 +1,139 @@
+% Thesis style for MAPi doctoral program
+% Hacked from DCC/FCUP thesis style, (hacked from Manchester
+% University and  Stanford University thesis stylse)
+%
+% 4/1991, Fernando: new commands added
+%    \submitionplace{}, \department{} and \dedicationpage{},
+%     now the cover page can be fully specified outside this style file!
+%  9/94, Fernando: adjusted for UP
+%  3/96, Fernando: style re-adjusted to comply with LaTeX2e.
+% 11/97, Fernando: style simplified
+% 9/12, Fernando: adjusted for MAPi
+%
+
+% 1-sided margins 
+%\oddsidemargin 0.50in \evensidemargin 0in      %one-sided
+%\topmargin -0.25in
+%\textheight 9.0in 
+%\textwidth  6.06in
+
+% 2-sided margins
+\oddsidemargin 0.25in \evensidemargin -0.09in  %two-sided
+\topmargin -0.2in
+\textheight 8.95in 
+\textwidth  6.05in
+
+% settings for paragraphs
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{2mm}
+% defining the space between lines (1.5 is for double-space)
+\renewcommand{\baselinestretch}{1.2}
+%
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\hyphenpenalty=1000
+\flushbottom
+
+\def\department#1{\gdef\@department{#1}}
+\def\submitionplace#1{\gdef\@submitionplace{#1}}
+\def\doctoralprogram#1{\gdef\@doctoralprogram{#1}}
+\def\submitdate#1{\gdef\@submitdate{#1}}
+\def\@title{}
+\def\@author{}
+\def\@department{}
+\def\@submitionplace{}
+\def\@doctoralprogram{}
+\def\@submitdate{}
+
+\def\coverp{%
+        \thispagestyle{empty}%
+        \null\vskip0.1in%
+        \centerline{\includegraphics[width=5cm]{fc_newlogo.jpeg}}
+        \null\vskip1.5in%
+        \begin{center}
+                {\Large \bf \@author}\\
+                \vskip0.5in%
+                {\huge \bf \expandafter{\@title}}
+        \end{center}
+        \vskip2in
+        \begin{center}
+                {\large \bf \expandafter{\@doctoralprogram}}\\
+                \vskip0.2in
+                \includegraphics[width=2cm]{uminho.png}\hspace{0.5cm}\includegraphics[width=4cm]{uaveiro.png}\hspace{0.5cm}\includegraphics[width=3.5cm]{uporto.png}
+        \vfill
+        {\large \bf \expandafter{\@submitdate}}
+        \end{center}
+        \vskip0.2in
+\newpage}
+
+\def\titlep{%
+        \thispagestyle{empty}%
+        \null\vskip0.1in%
+        \centerline{\includegraphics[width=5cm]{fc_newlogo.jpeg}}
+        \null\vskip1.5in%
+        \begin{center}
+                {\Large \bf \@author}\\
+                \vskip0.5in%
+                {\huge \bf \expandafter{\@title}}
+        \end{center}
+        \vskip 2in
+        \begin{center}
+                {\small \it \@submitionplace}\\
+                \vskip0.2in
+                \includegraphics[width=2cm]{uminho.png}\hspace{0.5cm}\includegraphics[width=4cm]{uaveiro.png}\hspace{0.5cm}\includegraphics[width=3.5cm]{uporto.png}
+        \end{center}
+        \vfill
+        \begin{center}
+                \expandafter{\@department}\\
+                \@submitdate\\
+        \end{center}
+        \vskip.5in
+%\newpage
+}
+
+\def\dedicationpage#1{
+        \newpage
+        \vspace*{7cm}
+        \begin{center}
+                  {\bf #1}
+        \end{center}
+        \vfill}
+
+\def\beforepreface{
+        \pagenumbering{arabic}
+        \pagestyle{plain}
+        \coverp
+        \titlep
+}
+
+\def\prefacesection#1{%
+        \chapter*{#1}
+        \addcontentsline{toc}{chapter}{#1}}
+
+\def\afterpreface{%
+        \newpage
+        \tableofcontents
+        \newpage
+%        \if@tablespage
+           \addvspace{10pt}
+           \listoftables
+           \addcontentsline{toc}{chapter}{\listtablename}
+           \newpage
+%        \fi
+%        \iffigurespage
+           \addvspace{10pt}
+           \listoffigures
+           \addcontentsline{toc}{chapter}{\listfigurename}
+           \newpage
+%        \fi
+%        \ifalgorithmspage
+           \addvspace{10pt}
+           \listofalgorithms
+           \addcontentsline{toc}{chapter}{\listalgorithmname}
+           \newpage
+%        \fi
+        \pagestyle{headings}
+}
+
+
+

@@ -1,0 +1,94 @@
+% Document Type: LaTeX
+% Master File: thesis.tex
+\documentclass[11pt]{book}
+% package thesis in English
+\usepackage{mapithesis}         %use uptese.sty if thesis in Portuguese
+\usepackage[portuges,english]{babel} %hyphenation in Portuguese 
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{units}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{rotating} % vertical display of tables
+%colors in tables
+\usepackage{xcolor,colortbl}
+\definecolor{Gray}{gray}{0.85}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage[chapter]{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+% citation with author year
+\usepackage[authoryear]{natbib}
+
+%acronyms list
+%\usepackage[automake]{glossaries}
+\usepackage[toc, automake]{glossaries}
+\makeglossaries
+\loadglsentries{glsentries}
+%\makenoidxglossaries
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother
+
+\begin{document}
+
+
+\title{The title of the thesis here}
+\submitionplace{Thesis submitted to Faculty of Sciences of the
+  University of Porto \\ for the Doctor Degree in Computer Science within the Joint Doctoral
+  Program in \\ Computer Science of the Universities of Minho, Aveiro and Porto}
+\author{Your name}
+\doctoralprogram{Doctoral Program in Computer Science \\of the
+  Universities of Minho, Aveiro and Porto}
+\department{Departamento de Ci\^encia de Computadores \\ Faculdade de
+Ci\^encias da Universidade do Porto}
+\submitdate{May 2018}
+
+\frontmatter
+\beforepreface
+\pagenumbering{roman}
+
+\newpage\null\newpage
+\input{preamble/declaration}
+%\includepdf[pages=1]{preamble/declaration} %to replace with the pdf with the signed declaration
+\setcounter{page}{5} % check!
+\dedicationpage{...dedicatoria...}
+\newpage
+\input{preamble/acks}
+\input{preamble/absEN}   % abstract in English
+\input{preamble/absPT} % abstract in Portuguese
+\afterpreface
+
+\mainmatter
+
+\include{chapters/ch1}
+\include{chapters/ch2}
+\include{chapters/ch3}
+\appendix
+\include{annexes/app1}
+\printglossary[type=\acronymtype]
+\renewcommand{\bibname}{References}
+\cleardoublepage\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{plainnat}
+\bibliography{refs}
+\end{document}

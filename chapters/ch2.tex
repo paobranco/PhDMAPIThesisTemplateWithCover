@@ -1,0 +1,57 @@
+\chapter{Literature Review}
+\label{LR}
+
+%-------------------------------------------------------------
+\section{Introduction}\label{LR:intro}
+
+\begin{table}[h!]
+  \begin{center}
+    \begin{tabular}{l|c|r}
+      \textbf{Value 1} & \textbf{Value 2} & \textbf{Value 3}\\
+      $\alpha$ & $\beta$ & $\gamma$ \\
+      \hline
+      1 & 1110.1 & a\\
+      2 & 10.1 & b\\
+      3 & 23.113231 & c\\
+    \end{tabular}
+  \end{center}
+    \caption{Your first table.}
+    \label{tab:table1}
+\end{table}
+
+The first reference to \gls{svm}. After this, I mention again \gls{svm}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{fc_newlogo.jpeg}
+    \caption{One example.}
+    \label{fig:example}
+\end{figure}
+
+You can make references with and without parenthesis~\cite{AlmGot89} or \citep{AlmGot89}, and you can also present definitions and theorems:
+
+\begin{definition}[My new concept]\label{def:def1}
+My new concept is...
+\end{definition}
+
+\begin{theorem}[Utility-based learning]\label{th:th1}
+If something ...
+\end{theorem}
+
+
+Finally an algorithm:
+
+\begin{algorithm}
+\caption{Euclid's algorithm}\label{alg:euclid}
+\begin{algorithmic}[1]
+\Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+\State $r\gets a\bmod b$
+\While{$r\not=0$}\Comment{We have the answer if r is 0}
+\State $a\gets b$
+\State $b\gets r$
+\State $r\gets a\bmod b$
+\EndWhile\label{euclidendwhile}
+\State \textbf{return} $b$\Comment{The gcd is b}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
